@@ -1,9 +1,7 @@
-let AWS = require('aws-sdk');
-AWS.config.update({ region: 'us-east-1' });
+'use strict';
 
+let { AWS, tableName, print, prettyPrint } = require('./constants');
 let db = new AWS.DynamoDB();
-
-let { tableName, print, prettyPrint } = require('./constants');
 
 let tableDefn = {
   TableName: tableName,
