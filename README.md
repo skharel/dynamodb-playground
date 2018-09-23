@@ -118,14 +118,29 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
     <br/>
    3. Update an Item:
 
-```
-    node 3.3_UpdateItem.js
-```
+   ```
+       node 3.3_UpdateItem.js
+   ```
 
-All the API calls are commented out in the bottom of the file; uncomment the one you want to see in action
+   All the API calls are commented out in the bottom of the file; uncomment the one you want to see in action
 
-Things to Note:
+   Things to Note:
 
-- **API:** uses _update_ API call from `new AWS.DynamoDB.DocumentClient()`
-- Read (notes.md)[./notes.md]
-- Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute
+   - **API:** uses _update_ API call from `new AWS.DynamoDB.DocumentClient()`
+   - Read (notes.md)[./notes.md]
+   - Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute
+
+    <br/>
+   3. Delete an Item:
+
+   ```
+       node 3.4_DeleteItem.js
+   ```
+
+   All the API calls are commented out in the bottom of the file; uncomment the one you want to see in action
+
+   Things to Note:
+
+   - **API:** uses _delete_ API call from `new AWS.DynamoDB.DocumentClient()`
+   - Read (notes.md)[./notes.md]
+   - Example includes removing item by using primary key, removing item by using primary key and conditional expression

@@ -181,3 +181,17 @@
   - `update` can be used to update values of existing attrubutes, add new attributes or remove attributes, atomic counter and increment or decrement numbers.
   - update also supports `ConditionExpression` where the operation succeeds only if a specific ConditionExpression evaluates to true. If the condition fails, you will get `ConditionalCheckFailedException`
   - see the file [3.3_UpdateItem](./3.3_UpdateItem.js)
+
+##### Delete Item: delete
+
+- Literature
+
+  - [Reading data](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.DeleteData.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html#GettingStarted.NodeJs.03.06)
+  - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
+
+  <br/>
+
+  - `delete` can be used to remove an item using primary key
+  - It also supports optional `ConditionExpression` to prevent the item from being deleted if the condition is not met.
+  - see the file [3.4_DeleteItem](./3.4_DeleteItem.js)
