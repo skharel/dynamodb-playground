@@ -99,7 +99,7 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - The value of composite primary key must be provided for the put operation (obviously!)
    - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
 
-   1. Read an Item:
+   2. Read an Item:
 
    ```
        node 3.2_ReadItem.js
@@ -113,3 +113,17 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - Read (notes.md)[./notes.md]
    - Note: It is possible to scan top level list object and example is included. For example, querying by actors in our data model. However, I haven't figured out a way to scan nested array. For example by directors which is inside info object)
    - **TODO** figure out scan/query by nested object
+
+   3. Update an Item:
+
+   ```
+       node 3.3_UpdateItem.js
+   ```
+
+   All the API calls are commented out in the bottom of the file; uncomment the one you want to see in action
+
+   Things to Note:
+
+   - **API:** uses _update_ API call from `new AWS.DynamoDB.DocumentClient()`
+   - Read (notes.md)[./notes.md]
+   - Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute

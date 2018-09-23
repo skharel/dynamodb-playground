@@ -123,6 +123,7 @@
 
   - [createTable](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.CreateTable.html)
   - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.01.html)
+  - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
 
 ##### Write data to Table: put
 
@@ -130,6 +131,7 @@
 
   - [put](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WriteData.html)
   - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.02.html)
+  - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
 
 - `put` will either insert new item or update an existing item
 
@@ -138,7 +140,8 @@
 - Literature
 
   - [Reading data](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.html)
-  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html#GettingStarted.NodeJs.03.02)
+  - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
 
   <br/>
 
@@ -164,3 +167,17 @@
 
   - `scan` API is equivalent to select statement without WHERE clause. DynamoDB can retrieve all items or just some of the items
   - **TODO:** I have some example of querying by top level array but could not figure out query by nested array
+
+##### Update Item: update
+
+- Literature
+
+  - [Reading data](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.UpdateData.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html#GettingStarted.NodeJs.03.03)
+  - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
+
+  <br/>
+
+  - `update` can be used to update values of existing attrubutes, add new attributes or remove attributes, atomic counter and increment or decrement numbers.
+  - update also supports `ConditionExpression` where the operation succeeds only if a specific ConditionExpression evaluates to true. If the condition fails, you will get `ConditionalCheckFailedException`
+  - see the file [3.3_UpdateItem](./3.3_UpdateItem.js)
