@@ -111,5 +111,5 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
 
    - **API:** uses _get_, _query_, _scan_, API call from `new AWS.DynamoDB.DocumentClient()`
    - Read (notes.md)[./notes.md]
-   - Note: It is possible to scan top level list object and example is included. For example, querying by actors in our data model ([see README.md](./README.md) for the model. However, I haven't figured out a way to scan nested array. For example by directors which is inside info object)
+   - Note: It is possible to scan top level list object and example is included. For example, querying by actors in our data model. However, I haven't figured out a way to scan nested array. For example by directors which is inside info object)
    - **TODO** figure out scan/query by nested object
