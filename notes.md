@@ -22,7 +22,7 @@
   - [Partitions and Data Distributions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.Partitions.html)
   - [Choosing the right DynamoDB partition Key](https://aws.amazon.com/blogs/database/choosing-the-right-DynamoDB-partition-key/)
 
-- DynamoDB stores data in partitions. A partition is an allocation of storage for a table.
+- DynamoDB stores data in partitions. A partition is an allocation of storage for a table. To determine the partition in which data should be stored, dynamoDB uses technique called consistent hashing
 
 - DyanmoDB supports **two types of primary keys**:
 
@@ -30,13 +30,16 @@
 
   2. Partition key and sort key _(Composite Primary Key)_: This type of key is composed of two attributes; first attribute is the partition key (hash key) and the second one is sort key (or range key). In this case, dyanamoDB calculates the hash value of the partition key of the in the same way as described for simple primary key; all items with the same partition key are then stored physically close together, ordered by sort key value.<br/> <br/> To _write an item_ to the table, DyanamoDB calculates the has value of the partition key to determine which partition should contain the item. Then in the partition, dyanmoDB stores the item together with the oher item that has same partition key in ascending order by sort key. <br/><br/> To read an items, you must specify its partition key value and sort key value. DyanmoDB calculats the partition key's has value, yielding the partition in which the item can be found.
 
-  - Read the literature choosing the right DynamoDB partition Key to learn about the Recommendations & Antipattern for partition keys.
+  - Note: Read the literature choosing the right DynamoDB partition Key to learn about the Recommendations & Antipattern for partition keys.
 
 #### Data types
 
 - [Literature](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes)
+- Scalar
+- Document
+- List
 
-**Scalar**
+##### **Scalar**
 
 - to represent only one values
 - String
@@ -45,7 +48,7 @@
 - Boolean
 - Null
 
-**Document**
+##### **Document**
 
 - to represent complex data type
 - List and Map are document data types. These data types can be nested within each other, to represent complex data structures up to 32 levels deep.
@@ -79,7 +82,7 @@
   ```
   - DynamoDB lets you work with individual elements within maps, even if those elements are deeply nested. For more information, see [Using Expressions in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html).
 
-**Set**
+##### **Set**
 
 - to represent multiple scalar values
 - String set (eg: ["Black", "Green", "Red"])
@@ -89,3 +92,25 @@
 - Because it is set, each value withing a set must be unique
 - The order of values within a set is not presereved
 - Empty set is not supported
+
+#### Indexes:
+
+- Literatures:
+
+  - [Managing Indexes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.Indexes.html)
+  - [Best practices for using secondary indexes in DyanamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-indexes.html)
+
+- The purpose of Indexes is to give you access to alternate query patterns if you cannot query your data using primary keys.
+- Whether you are using SQL or NoSQL, creation of indexes has cost, especially in write heavy environments because even indexes needs to be updated.
+- In dyanmoDB, you can create and use **secondary index** for alternate query patterns. When you create a secondary index, you must specify its key attributes - a partition key and a sort key. After you crate the secondary index, you can _Query it or Scan it_ just as you would with a table. DynamoDB does have not have a query optimizer, so a secondary index is only used when you Query it or Scan it.
+- DynamoDB supports two different kinds of indexes:
+
+  - Global Secondary Indexes (GSI):
+    - The primary key of the index can be any two attributes from its table (think of it as copy of your data with different partition key).
+    - You can add a gloabl secondary index to an existing table using _UpdateTable_ action.
+    - More powerful then the LSI. LSI can be emulated with GSI
+  - Local Seconday Indexes (LSI):
+    - The partition key of the index must be the same as the partition key of its table. However, the sort key can be any other attribute.
+
+- [Limitations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-secondary-indexes):
+  - You can define a maximum of 5 LSI and 5 GSI per table
