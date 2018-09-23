@@ -131,6 +131,6 @@
   - [put](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WriteData.html)
   - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.02.html)
 
-  <br/> <br/>
+  <br/>
 
   - `put` will either insert new item or update an existing item
