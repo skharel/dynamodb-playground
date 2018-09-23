@@ -1,18 +1,32 @@
-I am Learning DynamoDB using Node.js. [Terminology and concepts are in notes](./notes.md).
+### About this repo
 
-Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html)
+This repository has example of how to interact with dynamodb using Node.js. The content is primarily from [AWS DyanamoDB tutorial for Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html). However, I have made some changes to the data model (discussed below) to add few more examples.
 
-### Configure AWS CLI to run the scripts
+Included is also more elaborate [notes](./notes.md) that includes Termn=inology, concepts and link related to DyanmoDB.
 
-1. Configure AWS credentials using AWS CLI
+### Getting Started
 
-2. Run the program as:
+#### Pre-req
 
-   `node <filename>.js`
+- You can navigate to DynamoDB console in AWS
+- Must have Node.js in your system
+- Must have AWS CLI installed & configured AWS Credentials using the AWS CLI
 
-   This will use default AWS profile. If you want to use someother profile, run as:
+#### Starting with this repo
 
-   `AWS_PROFILE=<profileName> node <filename>.js`
+- Clone this repo
+- Install packages by running
+  ```
+      npm i
+  ```
+
+### Executing JS files
+
+`node <filename>.js`
+
+This will use default AWS profile. If you want to use someother profile, run as:
+
+`AWS_PROFILE=<profileName> node <filename>.js`
 
 ### Scripts interacting with DyanamoDB
 
@@ -100,7 +114,7 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
 
     <br/>
-   2. Read an Item:
+   1. Read an Item:
 
    ```
        node 3.2_ReadItem.js
