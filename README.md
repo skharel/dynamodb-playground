@@ -63,7 +63,7 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
                "David Matthewman",
                "Ann Thomas",
                "Jonathan G. Neff"
-            ]
+               ]
        }
    }
    ```
@@ -80,3 +80,18 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
        <br/> <br/>
 
    In short the data model uses most of the data types dyanamoDB supports.
+
+3. Step 3: All CRUD operations:
+
+   1. Create new Item:
+
+   ```
+       node 3.1_CreateNewItem.js
+   ```
+
+   Things to Note:
+
+   - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
+   - Intially when the script is run data will be inserted
+   - If you run the script again, it runs with out error. Update any value in the info attribute and try to run again. The data will be updated. So, put is an operation that either inserts or update
+   - The value of composite primary key must be provided for the put operation (obviously!)
