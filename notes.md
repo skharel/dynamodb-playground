@@ -117,8 +117,16 @@
 
 #### API for DynamoDB
 
-##### Create Table
+##### Create Table: createTable
 
 - Literature
+
   - [createTable](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.CreateTable.html)
-  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.CreateTable.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.01.html)
+
+##### Write data to Table: put
+
+- Literature
+
+  - [put](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WriteData.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.02.html)

@@ -1,3 +1,9 @@
+I am Learning DynamoDB using Node.js. [Terminology and concepts are in notes](./notes.md).
+
+Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html)
+
+### Configure AWS CLI to run the scripts
+
 1. Configure AWS credentials using AWS CLI
 
 2. Run the program as:
@@ -8,12 +14,69 @@
 
    `AWS_PROFILE=<profileName> node <filename>.js`
 
-The contents of this repository follows the [AWS DyanamoDB tutorial for Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html)
+### Scripts interacting with DyanamoDB
 
-1. [Create Table](./CreateTable.js)
+1. Step 1: [Create Table](./CreateTable.js)
 
    ```
     node CreateTable.js
    ```
 
-2.
+   Things to note:
+
+   - This table uses composite key composed of two attributes
+   - Year is the partition key and title is the sort key
+   - **API:** uses _createTable_ API call from `new AWS.DynamoDB()`
+
+2. Step 2: [Load Movie data](./LoadMovieData.js)
+
+   ```
+       node LoadMovieData.js
+   ```
+
+   Things to note:
+
+   - The data model for movie file is downloaded from AWS tutorial site but I removed lot of movie data so that my test data size is small
+   - **API:** uses _put_ API call from `new AWS.DynamoDB.DocumentClient()`
+   - Example of a movie data:
+
+   ```
+   {
+       "year" : 2013,
+       "title" : "Turn It Down, Or Else!",
+       "info" : {
+           "directors" : [
+               "Alice Smith",
+               "Bob Jones"
+           ],
+           "release_date" : "2013-01-18T00:00:00Z",
+           "rating" : 6.2,
+           "genres" : [
+               "Comedy",
+               "Drama"
+           ],
+           "image_url" : "http://ia.media-imdb.com/images/N/O9ERWAU7FS797AJ7LU8HN09AMUP908RLlo5JF90EWR7LJKQ7@@._V1_SX400_.jpg",
+           "plot" : "A rock band plays their music at high volumes, annoying the neighbors.",
+           "rank" : 11,
+           "running_time_secs" : 5215,
+           "actors" : [
+               "David Matthewman",
+               "Ann Thomas",
+               "Jonathan G. Neff"
+            ]
+       }
+   }
+   ```
+
+   - For each movie, there are three attributes: year, title and info
+   - data type for year and title is string
+   - data type for info is a map object and demonstrates how a map can be stored in DynamoDB
+   - inside the info:
+     - directors, genres & actors are sets of string
+     - release_date is timestamp with timezone
+     - rating is decimal value
+     - image_url, plot are of type string
+     - rank and running_time_secs are of type number
+       <br/> <br/>
+
+   In short the data model uses most of the data types dyanamoDB supports.
