@@ -133,4 +133,4 @@
 
   <br/>
 
-  - `put` will either insert new item or update an existing item
+- `put` will either insert new item or update an existing item
