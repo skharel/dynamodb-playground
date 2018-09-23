@@ -114,3 +114,11 @@
 
 - [Limitations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-secondary-indexes):
   - You can define a maximum of 5 LSI and 5 GSI per table
+
+#### API for DynamoDB
+
+##### Create Table
+
+- Literature
+  - [createTable](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.CreateTable.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.CreateTable.html)
