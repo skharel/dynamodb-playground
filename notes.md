@@ -131,6 +131,36 @@
   - [put](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.WriteData.html)
   - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.02.html)
 
+- `put` will either insert new item or update an existing item
+
+##### Read data from Table: get
+
+- Literature
+
+  - [Reading data](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.html)
+  - [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html)
+
   <br/>
 
-- `put` will either insert new item or update an existing item
+- You can specifiy `ProjectionExpression` to specifiy columns to retrieve
+- If your column name is reserved keyword for dynamodb, then use `ExpressionAttributeNames` as placeholder
+- Take a note of the count and scannedCount attribute dynamoDB returns. The higher the difference, more likely you will run into performance issues
+
+- [GET API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.SingleItem.html)
+
+  - `get` API can be used to retrieve single item. For this API, if you must specify all primary keys (simple or composite) to retrieve a single item
+  - See [usage example in 3.2_ReadItem.js](./3.2_ReadItem.js)
+
+- [Query API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Query.html)
+
+  - `query` API to retrieve all of the items that have specific partition key.
+  - must specify an equality condition for the partition key, and you can optionally provide another condition for the sort key.
+  - See [usage example in 3.2_ReadItem.js](./3.2_ReadItem.js). There are multiple query parameters usage example
+  - `KeyConditionExpression` parameter specifies the key values that you want to query; you can use place holder value for value of the key
+  - `ExpressionAttributeValues` specifies the bindings for the place holder value
+  - use an optional `FilterExpression` to remove certain items from the results before they are returned to you
+
+- [Scan API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Scan.html)
+
+  - `scan` API is equivalent to select statement without WHERE clause. DynamoDB can retrieve all items or just some of the items
+  - **TODO:** I have some example of querying by top level array but could not figure out query by nested array
