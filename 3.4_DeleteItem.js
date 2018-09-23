@@ -33,5 +33,5 @@ let deleteWithCondition = {
       .catch(print);
   };
 
-del(deleteWithCondition);
+//del(deleteWithCondition);
 //del(usingPrimarykey)
