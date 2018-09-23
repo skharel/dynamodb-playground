@@ -8,6 +8,7 @@ let newItem = {
   Item: {
     year: 2015,
     title: 'The Big New Movie',
+    actors: ['me', 'you'],
     info: {
       plot: 'Nothing happens at all....',
       rating: 0
