@@ -106,17 +106,14 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
        node 3.2_ReadItem.js
    ```
 
-   All the API calls are commented out in the bottom of the file; uncomment the one you want to see in action
-
    Things to Note:
 
    - **API:** uses _get_, _query_, _scan_, API call from `new AWS.DynamoDB.DocumentClient()`
+   - query and scan are discussed later
    - Read (notes.md)[./notes.md]
-   - Note: It is possible to scan top level list object and example is included. For example, querying by actors in our data model. However, I haven't figured out a way to scan nested array. For example by directors which is inside info object)
-   - **TODO** figure out scan/query by nested object
 
     <br/>
-   3. Update an Item:
+   1. Update an Item:
 
    ```
        node 3.3_UpdateItem.js
@@ -131,7 +128,7 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute
 
     <br/>
-   4. Delete an Item:
+   1. Delete an Item:
 
    ```
        node 3.4_DeleteItem.js
@@ -144,3 +141,16 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - **API:** uses _delete_ API call from `new AWS.DynamoDB.DocumentClient()`
    - Read (notes.md)[./notes.md]
    - Example includes removing item by using primary key, removing item by using primary key and conditional expression
+
+4. Query and Scan:
+
+   ```
+       node QueryAndScan.js
+   ```
+
+   Things to note:
+
+   - **API:** uses _query_, _scan_, API call from `new AWS.DynamoDB.DocumentClient()`
+   - Example of query includes: query by year, query by year and title starting with A - E, query by year and title starting with E only
+   - Example of Scan includes scanning top level list of actors, scan using partition key years using between operator, scanning using nested object info.genres
+   - Note the response of count vs ScannedCount in console. The higher the difference, more performance issue likely to happen.

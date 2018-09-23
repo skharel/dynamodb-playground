@@ -154,20 +154,6 @@
   - `get` API can be used to retrieve single item. For this API, if you must specify all primary keys (simple or composite) to retrieve a single item
   - See [usage example in 3.2_ReadItem.js](./3.2_ReadItem.js)
 
-- [Query API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Query.html)
-
-  - `query` API to retrieve all of the items that have specific partition key.
-  - must specify an equality condition for the partition key, and you can optionally provide another condition for the sort key.
-  - See [usage example in 3.2_ReadItem.js](./3.2_ReadItem.js). There are multiple query parameters usage example
-  - `KeyConditionExpression` parameter specifies the key values that you want to query; you can use place holder value for value of the key
-  - `ExpressionAttributeValues` specifies the bindings for the place holder value
-  - use an optional `FilterExpression` to remove certain items from the results before they are returned to you
-
-- [Scan API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Scan.html)
-
-  - `scan` API is equivalent to select statement without WHERE clause. DynamoDB can retrieve all items or just some of the items
-  - **TODO:** I have some example of querying by top level array but could not figure out query by nested array
-
 ##### Update Item: update
 
 - Literature
@@ -195,3 +181,20 @@
   - `delete` can be used to remove an item using primary key
   - It also supports optional `ConditionExpression` to prevent the item from being deleted if the condition is not met.
   - see the file [3.4_DeleteItem](./3.4_DeleteItem.js)
+
+#### Query and Scan:
+
+- [Query API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Query.html)
+- [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.04.html)
+
+  - `query` API to retrieve all of the items that have specific partition key.
+  - must specify an equality condition for the partition key, and you can optionally provide another condition for the sort key.
+  - See [usage example in QueryAndScan](./QueryAndScan.js). There are multiple query parameters usage example
+  - `KeyConditionExpression` parameter specifies the key values that you want to query; you can use place holder value for value of the key
+  - `ExpressionAttributeValues` specifies the bindings for the place holder value
+
+- [Scan API](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SQLtoNoSQL.ReadData.Scan.html)
+- [AWS Tutorial](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.04.html)
+
+  - `scan` API is equivalent to select statement without WHERE clause. DynamoDB can retrieve all items or just some of the items
+  - use an optional `FilterExpression` so that only the items matching your criteria are returned. However, the filter is only applied after the entire table has been scanned.
