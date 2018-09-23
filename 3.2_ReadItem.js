@@ -83,7 +83,7 @@ let scanAPI_1_by_Actors = {
       ':actor': 'Matt Damon'
     }
   },
-  scanAPI_2 = {
+  scanAPI_2_by_Info_Directors = {
     //TODO Figure out how to query by directors which is inside info object
   },
   scan = params => {
