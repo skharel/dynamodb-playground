@@ -131,7 +131,7 @@ Table, scripts, data in this repository follows the [AWS DyanamoDB tutorial for 
    - Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute
 
     <br/>
-   3. Delete an Item:
+   4. Delete an Item:
 
    ```
        node 3.4_DeleteItem.js
