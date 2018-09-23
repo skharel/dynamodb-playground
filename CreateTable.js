@@ -22,5 +22,4 @@ let tableDefn = {
 db.createTable(tableDefn)
   .promise()
   .then(prettyPrint)
-  .then()
   .catch(print);
