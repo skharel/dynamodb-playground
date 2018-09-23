@@ -83,4 +83,4 @@ let actors = {
 //update(rating);
 //update(conditionalUpdate);
 //update(addNewAttribute);
-update(removeAttribute);
+//update(removeAttribute);
