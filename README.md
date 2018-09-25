@@ -78,7 +78,11 @@ This will use default AWS profile. If you want to use someother profile, run as:
             "image_url" : "http://ia.media-imdb.com/images/N/O9ERWAU7FS797AJ7LU8HN09AMUP908RLlo5JF90EWR7LJKQ7@@._V1_SX400_.jpg",
             "plot" : "A rock band plays their music at high volumes, annoying the neighbors.",
             "rank" : 11,
-            "running_time_secs" : 5215
+            "running_time_secs" : 5215,
+            earnings: {
+                domestic: 'amount',
+                international: 'amount'
+            }
         }
     }
     ```
@@ -88,12 +92,15 @@ This will use default AWS profile. If you want to use someother profile, run as:
     - data type for actors is sets of string
     - data type for info is a map object and demonstrates how a map can be stored in DynamoDB
     - inside the info:
+
       - directors & genres are sets of string
       - release_date is timestamp with timezone
       - rating is decimal value
       - image_url, plot are of type string
       - rank and running_time_secs are of type number
-        <br/> <br/>
+
+    - Note: info.earnings is not present in the sample data file. At step `3.1_CreateNewItem.js` we will insert new record and in step `3.3_UpdateItem.js`, we will add this nested map object for the data we inserted in 3.1. We will also use this nested map attribute to show an example of query in `QueryAndScan.js`.
+      <br/> <br/>
 
     In short the data model uses most of the data types dyanamoDB supports.
 
@@ -115,7 +122,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
     - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
 
     <br/>
-    2. Read an Item:
+    1. Read an Item:
 
     ```
         node 3.2_ReadItem.js
@@ -129,7 +136,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
 
 
     <br/>
-    3. Update an Item:
+    1. Update an Item:
 
     ```
         node 3.3_UpdateItem.js
@@ -144,7 +151,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
     - Example includes updating top level list of string, nested rating, conditional update, adding new top level attribute, adding nested map attribute info.earning, updating nested map info.earning.international attribute and removing attribute
 
     <br/>
-    4. Delete an Item:
+    1. Delete an Item:
 
     ```
         node 3.4_DeleteItem.js
