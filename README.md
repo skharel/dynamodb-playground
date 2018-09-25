@@ -99,7 +99,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
       - image_url, plot are of type string
       - rank and running_time_secs are of type number
 
-    - Note: info.earnings is not present in the sample data file. At step [3.1_CreateNewItem.js](./3.1_CreateNewItem.js) we will insert new record and in step [3.3_UpdateItem.js](./3.3_UpdateItem.js#L72), we will add this nested map object for the data we inserted in 3.1. We will also use this nested map attribute to show an example of query in [QueryAndScan.js](./QueryAndScan.js).
+    - Note: info.earnings is not present in the sample data file. At step [3.1_CreateNewItem.js](./3.1_CreateNewItem.js) we will insert new record and in step [3.3_UpdateItem.js](./3.3_UpdateItem.js#L64), we will add this nested map object for the data we inserted in 3.1. We will also use this nested map attribute to show an example of query in [QueryAndScan.js](./QueryAndScan.js).
       <br/> <br/>
 
     In short the data model uses most of the data types dyanamoDB supports.
@@ -122,7 +122,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
     - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
 
     <br/>
-    1. Read an Item:
+    2. Read an Item:
 
     ```
         node 3.2_ReadItem.js
@@ -136,7 +136,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
 
 
     <br/>
-    1. Update an Item:
+    3. Update an Item:
 
     ```
         node 3.3_UpdateItem.js
@@ -151,7 +151,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
     - Example includes updating top level list of string, nested rating, conditional update, adding new top level attribute, adding nested map attribute info.earning, updating nested map info.earning.international attribute and removing attribute
 
     <br/>
-    1. Delete an Item:
+    4. Delete an Item:
 
     ```
         node 3.4_DeleteItem.js
