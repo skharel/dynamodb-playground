@@ -67,9 +67,9 @@ let actors = {
       year: 2015,
       title: 'The Big New Movie'
     },
-    UpdateExpression: 'set info.earnings = :earning',
+    UpdateExpression: 'set info.earnings = :earnings',
     ExpressionAttributeValues: {
-      ':earning': {
+      ':earnings': {
         domestic: '1 billion',
         international: '10 million '
       }
