@@ -99,7 +99,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
       - image_url, plot are of type string
       - rank and running_time_secs are of type number
 
-    - Note: info.earnings is not present in the sample data file. At step [3.1_CreateNewItem.js](./3.1_CreateNewItem.js) we will insert new record and in step [3.3_UpdateItem.js](./3.3_UpdateItem.js), we will add this nested map object for the data we inserted in 3.1. We will also use this nested map attribute to show an example of query in [QueryAndScan.js](./QueryAndScan.js).
+    - Note: info.earnings is not present in the sample data file. At step [3.1_CreateNewItem.js](./3.1_CreateNewItem.js) we will insert new record and in step [3.3_UpdateItem.js](./3.3_UpdateItem.js#L72), we will add this nested map object for the data we inserted in 3.1. We will also use this nested map attribute to show an example of query in [QueryAndScan.js](./QueryAndScan.js).
       <br/> <br/>
 
     In short the data model uses most of the data types dyanamoDB supports.
