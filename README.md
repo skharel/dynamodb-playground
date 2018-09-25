@@ -2,7 +2,7 @@
 
 This repository has example of how to interact with dynamodb using Node.js. The content is primarily from [AWS DyanamoDB tutorial for Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html). However, I have made some changes to the data model (discussed below) to add few more examples.
 
-Included is also more elaborate [notes](./notes.md) that includes Termn=inology, concepts and link related to DyanmoDB.
+Included is also more elaborate [notes](./notes.md) that includes Terminology, concepts and links related to DyanmoDB literature.
 
 ### Getting Started
 
