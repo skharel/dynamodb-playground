@@ -99,6 +99,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
 
 3.  Step 3: All CRUD operations:
 
+    <br/>
     1. Create new Item:
 
     ```
