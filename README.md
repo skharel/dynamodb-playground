@@ -114,7 +114,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
    - I added the field `ReturnConsumedCapacity` so that we can know about WCU used by dyanamoDB
 
     <br/>
-   1. Read an Item:
+   2. Read an Item:
 
    ```
        node 3.2_ReadItem.js
@@ -127,7 +127,7 @@ This will use default AWS profile. If you want to use someother profile, run as:
    - Read (notes.md)[./notes.md]
 
     <br/>
-   1. Update an Item:
+   3. Update an Item:
 
    ```
        node 3.3_UpdateItem.js
@@ -139,10 +139,10 @@ This will use default AWS profile. If you want to use someother profile, run as:
 
    - **API:** uses _update_ API call from `new AWS.DynamoDB.DocumentClient()`
    - Read (notes.md)[./notes.md]
-   - Example includes updating top level list of string, nested rating, conditional update, adding new attribute and removing attribute
+   - Example includes updating top level list of string, nested rating, conditional update, adding new top level attribute, adding nested map attribute info.earning, updating nested map info.earning.international attribute and removing attribute
 
     <br/>
-   1. Delete an Item:
+   4. Delete an Item:
 
    ```
        node 3.4_DeleteItem.js
@@ -165,6 +165,6 @@ This will use default AWS profile. If you want to use someother profile, run as:
    Things to note:
 
    - **API:** uses _query_, _scan_, API call from `new AWS.DynamoDB.DocumentClient()`
-   - Example of query includes: query by year, query by year and title starting with A - E, query by year and title starting with E only
-   - Example of Scan includes scanning top level list of actors, scan using partition key years using between operator, scanning using nested object info.genres
+   - Example of query includes: query by year, query by year and title starting with A - E, query by year title starting with E only
+   - Example of Scan includes scanning top level list of actors, scan using partition key years using between operator, scanning using nested array info.genres & scaning using nested map info.earnings.international (We add this field in step 3.3)
    - Note the response of count vs ScannedCount in console. The higher the difference, more performance issue likely to happen.

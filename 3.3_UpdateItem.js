@@ -47,8 +47,8 @@ let actors = {
     },
     ReturnValues: 'UPDATED_NEW'
   },
-  //add new attribute
-  addNewAttribute = {
+  //add new top level attribute
+  addNewTopLevelAttribute = {
     TableName: tableName,
     Key: {
       year: 2015,
@@ -57,6 +57,35 @@ let actors = {
     UpdateExpression: 'set newAttribute = :value',
     ExpressionAttributeValues: {
       ':value': 'newValue'
+    },
+    ReturnValues: 'UPDATED_NEW'
+  },
+  //add new nested attribute of type map called earnings in the info object
+  addNewNestedAttribute = {
+    TableName: tableName,
+    Key: {
+      year: 2015,
+      title: 'The Big New Movie'
+    },
+    UpdateExpression: 'set info.earnings = :earning',
+    ExpressionAttributeValues: {
+      ':earning': {
+        domestic: '1 billion',
+        international: '10 million '
+      }
+    },
+    ReturnValues: 'UPDATED_NEW'
+  },
+  //updated the nested attribute info.earnings.international
+  updateNestedAttributeInternationalEarning = {
+    TableName: tableName,
+    Key: {
+      year: 2015,
+      title: 'The Big New Movie'
+    },
+    UpdateExpression: 'set info.earnings.international = :intlEarning',
+    ExpressionAttributeValues: {
+      ':intlEarning': '100 million'
     },
     ReturnValues: 'UPDATED_NEW'
   },
@@ -82,5 +111,7 @@ let actors = {
 //update(actors);
 //update(rating);
 //update(conditionalUpdate);
-//update(addNewAttribute);
+//update(addNewTopLevelAttribute);
+//update(addNewNestedAttribute);
+//update(updateNestedAttributeInternationalEarning);
 //update(removeAttribute);

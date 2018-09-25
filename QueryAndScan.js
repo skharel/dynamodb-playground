@@ -86,6 +86,18 @@ let scanAPI_by_Actors = {
       ':genere': 'Comedy'
     }
   },
+  //we added this field info.earnings.international in 3.3 > addNewNestedAttribute
+  scanAPI_by_International_Earnings = {
+    TableName: tableName,
+    ProjectionExpression: '#yr, title',
+    FilterExpression: 'info.earnings.international = :intlEarning',
+    ExpressionAttributeNames: {
+      '#yr': 'year'
+    },
+    ExpressionAttributeValues: {
+      ':intlEarning': '100 million'
+    }
+  },
   scan = params => {
     print('=========== Scanning items ===================');
     docClient
@@ -103,3 +115,4 @@ let scanAPI_by_Actors = {
 //scan(scanAPI_by_Actors);
 //scan(scanAPI_by_year);
 //scan(scanAPI_by_Genres);
+//scan(scanAPI_by_International_Earnings);
